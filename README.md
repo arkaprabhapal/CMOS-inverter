@@ -1,4 +1,4 @@
-# CMOS-inverte
+# CMOS-inverter
 
 **Under the guidance of Professor Nagendra Krishnapura, IIT Madras**
 
@@ -97,4 +97,71 @@ This data serves as a reference for:
 
 <img width="722" height="441" alt="image" src="https://github.com/user-attachments/assets/94b08c31-cf56-462e-8f03-80d463167a54" />
 
+## Table Overview
+# Comprehensive MOS Device Behavior Table
 
+This table documents the performance characteristics of various MOS (Metal–Oxide–Semiconductor) devices across different **technology corners**, **supply voltages**, and **temperature conditions**. It highlights output behavior for two input voltage cases:
+
+- `Vi = 0`
+- `Vi = VDD`
+
+Technology corners include:
+- `tt`: Typical-Typical  
+- `ss`: Slow-Slow  
+- `ff`: Fast-Fast  
+- `sf`: Slow-Fast  
+- `fs`: Fast-Slow  
+
+## Leakage Current (A) Table 
+
+| Row | Corner | VDD | Temp (°C) | Vi = 0   | Vi = VDD |
+|-----|--------|-----|-----------|----------|----------|
+| 1   | tt     | 1   | 0         | 2.271    | 2.272p   |
+| 2   | tt     | 1   | 100       | 54.24p   | 2.403p   |
+| 3   | tt     | 1.3 | 0         | 3.07p    | 5.779p   |
+| 4   | tt     | 1.3 | 100       | 60.18p   | 276.5p   |
+| 5   | ss     | 1   | 0         | 1.865p   | 2.153p   |
+| 6   | ss     | 1   | 100       | 16.51p   | 2.214p   |
+| 7   | ss     | 1.3 | 0         | 2.729p   | 3.476p   |
+| 8   | ss     | 1.3 | 100       | 18.78p   | 101.3p   |
+| 9   | ff     | 1   | 0         | 3.562p   | 2.501p   |
+| 10  | ff     | 1   | 100       | 172.9p   | 2.917p   |
+| 11  | ff     | 1.3 | 0         | 4.515p   | 17.56p   |
+| 12  | ff     | 1.3 | 100       | 190.5p   | 853.4p   |
+| 13  | sf     | 1   | 0         | 2.109p   | 2.277p   |
+| 14  | sf     | 1   | 100       | 24.85p   | 2.563p   |
+| 15  | sf     | 1.3 | 0         | 2.845p   | 11.57p   |
+| 16  | sf     | 1.3 | 100       | 27.93p   | 594.4p   |
+| 17  | fs     | 1   | 0         | 2.8p     | 2.267p   |
+| 18  | fs     | 1   | 100       | 117.9p   | 2.331p   |
+| 19  | fs     | 1.3 | 0         | 3.733p   | 3.799p   |
+| 20  | fs     | 1.3 | 100       | 129.9p   | 126p     |
+
+## gds of ON transistor (S) Table 
+
+## 📊 MOS Performance Table
+
+| Row | Corner | VDD | Temp (°C) | Vi = 0   | Vi = VDD |
+|-----|--------|-----|-----------|----------|----------|
+| 1   | tt     | 1   | 0         | 43.39u   | 67.54u   |
+| 2   | tt     | 1   | 100       | 31.17u   | 48.33u   |
+| 3   | tt     | 1.3 | 0         | 59.77u   | 67.54u   |
+| 4   | tt     | 1.3 | 100       | 42.11u   | 48.83u   |
+| 5   | ss     | 1   | 0         | 39u      | 60.94u   |
+| 6   | ss     | 1   | 100       | 28.28u   | 44.34u   |
+| 7   | ss     | 1.3 | 0         | 55.47u   | 60.94u   |
+| 8   | ss     | 1.3 | 100       | 39.2u    | 44.34u   |
+| 9   | ff     | 1   | 0         | 48.25u   | 74.55u   |
+| 10  | ff     | 1   | 100       | 34.36u   | 53.6u    |
+| 11  | ff     | 1.3 | 0         | 64.52u   | 74.55u   |
+| 12  | ff     | 1.3 | 100       | 45.32u   | 53.59u   |
+| 13  | sf     | 1   | 0         | 46.39u   | 63.05u   |
+| 14  | sf     | 1   | 100       | 33.03u   | 45.97u   |
+| 15  | sf     | 1.3 | 0         | 62.69u   | 63.05u   |
+| 16  | sf     | 1.3 | 100       | 43.94u   | 45.97u   |
+| 17  | fs     | 1   | 0         | 40.43u   | 72u      |
+| 18  | fs     | 1   | 100       | 29.32u   | 51.65u   |
+| 19  | fs     | 1.3 | 0         | 56.88u   | 72u      |
+| 20  | fs     | 1.3 | 100       | 40.29u   | 51.65u   |
+
+---
