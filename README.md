@@ -1,11 +1,10 @@
-# CMOS-inverter
-
+# CMOS INVERTER and DIFFERENT ANALYSES
 **Under the guidance of Professor Nagendra Krishnapura, IIT Madras**
 
 Software and PDK used : Cadence Virtuoso and TSMC 65nm PDK
 
 
-## 1. Basic Schematic
+## 1. CMOS inverter Schematic
 <img width="257" height="300" alt="image" src="https://github.com/user-attachments/assets/7e02923c-7e30-445b-b802-e70841b3063e" />
 
 Wp = 2Wn = 400 nm
@@ -112,7 +111,7 @@ Technology corners include:
 - `sf`: Slow-Fast  
 - `fs`: Fast-Slow  
 
-## Leakage Current (A) Table 
+## Leakage Current (in Ampere) Table 
 
 | Row | Corner | VDD | Temp (°C) | Vi = 0   | Vi = VDD |
 |-----|--------|-----|-----------|----------|----------|
@@ -137,7 +136,7 @@ Technology corners include:
 | 19  | fs     | 1.3 | 0         | 3.733p   | 3.799p   |
 | 20  | fs     | 1.3 | 100       | 129.9p   | 126p     |
 
-## gds of ON transistor (S) Table 
+## gds of ON transistor (in Siemens) Table 
 
 ## 📊 MOS Performance Table
 
@@ -165,3 +164,7 @@ Technology corners include:
 | 20  | fs     | 1.3 | 100       | 40.29u   | 51.65u   |
 
 ---
+
+## 5. Layout Design :
+# 5.1 Layout of Transistor with channel length L and 5L
+<img width="780" height="782" alt="image" src="https://github.com/user-attachments/assets/5ba72c55-5069-477c-ac9e-cbf5c2d2f049" />
