@@ -4,7 +4,7 @@
 Software and PDK used : Cadence Virtuoso and TSMC 65nm PDK
 
 
-## 1. CMOS inverter Schematic
+## CMOS inverter Schematic
 <img width="257" height="300" alt="image" src="https://github.com/user-attachments/assets/7e02923c-7e30-445b-b802-e70841b3063e" />
 
 Wp = 2Wn = 400 nm
