@@ -168,3 +168,7 @@ Technology corners include:
 ## 5. Layout Design :
 # 5.1 Layout of Transistor with channel length L and 5L
 <img width="780" height="782" alt="image" src="https://github.com/user-attachments/assets/5ba72c55-5069-477c-ac9e-cbf5c2d2f049" />
+
+# 5.2 Layout of 5L transistor with two fingers of PMOS
+<img width="556" height="581" alt="image" src="https://github.com/user-attachments/assets/10fd9607-3be9-4338-8b2d-65d8446d58e5" />
+
