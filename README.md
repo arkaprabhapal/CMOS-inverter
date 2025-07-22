@@ -59,82 +59,42 @@ This data serves as a reference for:
 - Performance modeling across technology nodes
 - Input sensitivity analysis
 
-## 2. Determining the DC current  
-- Lower Limit : It is calculated by the slew rate of the OTA and it came to be 50μA.
-- Upper Limit : it is calculated from the maximum power consumption of the circuit and it came to be 55.55μA.
-- So, I chose the DC current to be **55μA** as it satisfies both criterias.
-- 
-## 3. Determining the dimensions of MOSFETs
-We are considering the **Length(L)** of all mosfets as 1µm.
-### 3.1 Input pair NMOS 
-Its dimensions were calculated from UGF. The calculated value of (W/L) was 6. But by not getting the expected gm from this W/L ratio in the simulation, I changed it to **7**.
-### 3.2 Current mirror PMOS 
-Its dimensions were calculated from ICMR+ value. The calculated value was (W/L) = **7**.
-### 3.3 Current mirror NMOS
-Its dimensions were calculated from ICMR- value and the calculated value was (W/L) = **5.87**
+## 2. SELF BIASED INVERTER
+<img width="277" height="538" alt="image" src="https://github.com/user-attachments/assets/58bf69ae-7c64-453d-ae2c-7bc6d4f791e2" />
 
-## 4. Initial analysis
-### At ICMR = 0.8V
-- ![Screenshot](https://github.com/user-attachments/assets/7aa7f112-9508-4afa-8250-f48ceebdc3fe)
-- ![Screenshot-1](https://github.com/user-attachments/assets/459ecb4e-d831-4714-9618-14f39dd1a5f8)
-- Gain = 38.5dB and UGF = 5.04 MHz
-### At ICMR = 1.6V
-- ![Screenshot-4](https://github.com/user-attachments/assets/c2f19236-3c48-4963-8041-36b2338b3b24)
-- ![Screenshot-3](https://github.com/user-attachments/assets/6876d200-7ac2-4e22-9dcd-96a14a0d876f)
-- Gain = 34.2 dB and UGF = 5.07 MHz
-The gain is slightly low at ICMR = 1.6V and the ouput DC voltage level is slightly low than calculated. So the circuit is tuned accordingly.
-### Power consumption
-- I have observed the changed of Io w.r.t change in ICMR voltage.
-- ![Screenshot-12](https://github.com/user-attachments/assets/4e422a9d-b032-4374-bcf0-c21548ef38c7)
-It has been observed that Io increases linearly w.r.t Input common mode voltage. And at ICMR = 1.6V, Io = 57.42 μA. But the maximum limit is 55.55 μA. So, the value of current in current source of current mirror is tuned accordingly.
+## 🔧 Table: Operating Point Parameters
 
-## 5. Final Transistor tunings
-- **Current mirror PMOS** : (W/L) = **8**
-- **Input pair NMOS** : (W/L) = **9**
-- **Current mirror NMOS** : (W/L) = **5.87**
-- **Value of DC current of the OTA** : Io = 53 μA. This is the value of current at current source of the current sink of the OTA structure.
-  
-## 6. Final Analysis
+| Parameter         | Length = L     | Length = 5L     | Description                              |
+|------------------|----------------|-----------------|------------------------------------------|
+| Vo               | 575.3 mV       | 590.6 mV        | Output voltage                           |
+| I_VDD            | 5.918 µA       | 1.558 µA        | Current through VDD                      |
+| gmp              | 55.14 µS       | 12.97 µS        | Transconductance of PMOS                 |
+| gmn              | 69.62 µS       | 14.38 µS        | Transconductance of NMOS                 |
+| gdsp (OP)        | 1.973 µS       | 196.1 nS        | PMOS drain-source conductance (measured)|
+| gdsp (Est.)      | 2.646 µS       | 269.9 nS        | PMOS drain-source conductance (estimated)|
+| μp * Cox         | 96.33 µA/V²    | 152.27 µA/V²    | Mobility × Oxide capacitance (PMOS)     |
+| VTP              | -482.7 mV      | -415.8 mV       | Threshold voltage (PMOS)                 |
+| μn * Cox         | 316.9 µA/V²    | 359.325 µA/V²   | Mobility × Oxide capacitance (NMOS)     |
+| VTN              | 512.5 mV       | 431.6 mV        | Threshold voltage (NMOS)                 |
 
-### At ICMR = 0.8V
-- ![Screenshot-23](https://github.com/user-attachments/assets/a069651c-288f-46e1-9a2b-d3c1daef6bc6)
-- ![Screenshot-22](https://github.com/user-attachments/assets/285d222e-ef93-499d-a1ed-3e5ad554fd5d)
-- Gain = 39.31 dB and UGF = 5.53 MHz
-### At ICMR = 1.6V
-- ![Screenshot-24](https://github.com/user-attachments/assets/3f17c8c8-970e-4c72-a5d9-a10e58455ce1)
-- ![Screenshot-25](https://github.com/user-attachments/assets/0232898c-6317-4f67-8e71-e2ca38a8478c)
-- Gain = 36.18 dB and UGF = 5.61 MHz
-### Power consumption
-- The value of Io is measured w.r.t change in Input common mode voltage.
-![Screenshot-21](https://github.com/user-attachments/assets/72766050-c5f7-4564-95a5-205155611bea)
-- Io increases linearly w.r.t ICM voltage and 52.97 μA ≤ Io ≤ 55.37 μA.
-- So, Power consumption, P ranges between 95.346 μW ≤ P ≤ 99.66 μW.
+*Note: `gdsp (OP)` is from operating point measurement, while `gdsp (Est.)` is calculated.*
+
+## 3. SELF BIASED AMPLIFIER
+<img width="935" height="534" alt="image" src="https://github.com/user-attachments/assets/019a6cb3-0a81-4f83-b7f5-acc261dbc955" />
+
+## 📊 Summary
+
+| Parameter                             | Length = L     | Length = 5L   | Description                                                                 |
+|--------------------------------------|----------------|---------------|-----------------------------------------------------------------------------|
+| Rbias                                | 20 MΩ          | 40 MΩ          | Bias resistance for amplifier design                                        |
+| Mid-band \|vo/vi\|                   | 26.71          | 55.643         | Gain from AC analysis                                                       |
+| (gmp + gmn) / (gdsp + gdsn)          | 27.01          | 58.691         | Transconductance to conductance ratio                                      |
+| Input Peak-to-Peak @ 10% Deviation   | 20 mV          | 5 mV           | Input signal range allowed for 10% deviation between AC and transient      |
+| Output Peak-to-Peak @ 10% Deviation  | 513.6135 mV    | 510 mV         | Output signal swing within the same deviation tolerance                    |
 
 
-## 7. Final design
-- **FInal ciecuit design**
-- ![Screenshot-13](https://github.com/user-attachments/assets/fa32796b-d7de-4ee7-af8a-40fb99170104)
-- **Symbol creation**
-- ![Screenshot-14](https://github.com/user-attachments/assets/a7de3671-85b2-4648-b4b1-8fa6e819db6d)
+## 4. Simulations over PVT corners using ADE-Explorer: Setup the (twenty) corners as {tt, ss, ff, sf, fs} × {1 V, 1.3 V} × {0◦ C, 100◦ C}.
 
-## 8. Further Analysis
-### 8.1 Calculation of CMRR (Common Mode Rejection Ratio)
-I have used the following circuit for calculating CMRR.
-![Screenshot-31](https://github.com/user-attachments/assets/24d4a5e1-d8b9-4b65-a6f1-39b824f6a346)
-- At **ICMR = 0.8 V** :
-- ![Screenshot-28](https://github.com/user-attachments/assets/c2e6ffeb-0361-4d25-a81c-e004b19ffd51)
-- We are getting **CMRR = 81.2 dB** .
-- - At **ICMR = 1.6 V** :
-- ![Screenshot-29](https://github.com/user-attachments/assets/16375093-ae18-49b4-a852-4bdb62a63c67)
-- We are getting **CMRR = 83.03 dB** .
-
-### 8.2 Output swing
-![Screenshot-33](https://github.com/user-attachments/assets/53b37bb6-f79b-4bfb-8617-1c3d4e241b6a)
-Maximum Output swing = 1.367 V p-p
-
-## 9. Noise Analysis
-![Screenshot-57](https://github.com/user-attachments/assets/6d251ae4-d8c7-4bef-8a82-c28ac4ec6dc2)
-
-
+<img width="722" height="441" alt="image" src="https://github.com/user-attachments/assets/94b08c31-cf56-462e-8f03-80d463167a54" />
 
 
