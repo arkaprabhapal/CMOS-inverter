@@ -1,7 +1,7 @@
 # CMOS INVERTER and DIFFERENT ANALYSES
 **Under the guidance of Professor Nagendra Krishnapura, IIT Madras**
 
-Software and PDK used : Cadence Virtuoso and TSMC 65nm PDK
+## Software and PDK used : Cadence Virtuoso and TSMC 65nm PDK ##
 
 
 ## CMOS inverter Schematic
