@@ -172,3 +172,8 @@ Technology corners include:
 # 5.2 Layout of 5L transistor with two fingers of PMOS
 <img width="556" height="581" alt="image" src="https://github.com/user-attachments/assets/10fd9607-3be9-4338-8b2d-65d8446d58e5" />
 
+**After successfully passing the DRC, LVS and PEX, I was able to extract the CMOS inverter**
+<img width="896" height="251" alt="image" src="https://github.com/user-attachments/assets/6b3529c6-fcbd-4e14-be9d-f8d9156b03b4" />
+<img width="195" height="728" alt="image" src="https://github.com/user-attachments/assets/f69853f0-c2e1-4e95-835b-5babeff5ee3a" />
+
+
