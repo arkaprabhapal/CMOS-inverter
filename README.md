@@ -28,7 +28,7 @@ This repository provides a comparative analysis of key electrical parameters for
 
 | **Parameter**             | **L**          | **5L**         |
 |--------------------------|----------------|----------------|
-| Vi for Max Slope         | 600 mV         | 600 mV         |
+| Vi for Max Slope         | 576 mV         | 600 mV         |
 | Maximum Slope            | -19.995        | -35.0096       |
 | **At Vi = 0 V**          |                |                |
 | Leakage Current (I<sub>leak</sub>) | 11.546 pA      | 12.2724 pA     |
